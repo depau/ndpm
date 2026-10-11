@@ -76,6 +76,7 @@ jobs:
       - name: Build
         id: build
         run: |
+          pair="${{ matrix.pair }}"
           goos="${pair%/*}"; goarch="${pair#*/}"
           mkdir -p dist
           filename="ndpm-$goos-$goarch"

@@ -1,0 +1,31 @@
+# Navidrome plugin manager configuration.
+# See README.md for the full reference.
+
+# Directory where final <slug>.ndp files are written. Must be the same folder
+# that Navidrome watches (its Plugins.Folder), and it must be mounted into
+# both containers (shared volume).
+plugins_dir: /data/plugins
+
+# How often to poll GitHub releases. Go duration string.
+interval: 1h
+
+# Optional: GitHub personal access token. Raises the API rate limit and allows
+# private repositories. Usually better set via the GITHUB_TOKEN env var.
+# github_token: ghp_xxx
+
+# Each entry tracks one plugin repository.
+sources:
+  - repo: owner/nd-rating-sync
+    # Accept prereleases and release candidates as the "latest" release.
+    include_prereleases: false
+    # Optional: pin a specific asset name within the release. When omitted,
+    # the first asset whose filename ends in ".ndp" is used.
+    # filename: nd-rating-sync.ndp
+    # Optional: stable name the plugin is stored under (also its Navidrome
+    # plugin ID). Defaults to the repo name. Must match the .ndp filename
+    # your plugin publishes (including underscores), or Navidrome won't
+    # recognize it: set this to the base name of the actual asset.
+    # slug: my-plugin
+
+  - repo: someone/some-navidrome-plugin
+    include_prereleases: true

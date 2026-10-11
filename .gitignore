@@ -1,0 +1,19 @@
+# Build output
+dist/
+*.exe
+*.test
+*.out
+
+# Local runtime config (config.example.yaml is the tracked template)
+config.yaml
+
+# Runtime state written next to the plugins (never checked in)
+.state.json
+*.ndp
+*.ndp.tmp
+
+# Editor / OS noise
+.DS_Store
+.idea/
+.vscode/
+*.swp
